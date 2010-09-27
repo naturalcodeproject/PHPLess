@@ -1,0 +1,1901 @@
+/* Primary style sheet for The Charter */
+/* Copyright 2010, The Resort Company, LLC */
+
+/* block level elements
+---------------------------------------- */
+* {
+	outline: none;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+	background-color: #EDE7D9;
+	font: 12px/14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #696562;
+}
+
+body {
+	min-width: 1000px;
+	margin: 0;
+	padding: 0;
+	background: #f8f7ee;
+}
+
+body#popup {
+	min-width: inherit;
+	padding: 17px;
+	background: #e5e5e0;
+}
+
+h1 {
+	font-size: 15px;
+	font-weight: normal;
+	margin: 0 0 15px 0;
+}
+
+img {
+	border: 0 none;
+}
+
+p {
+	margin: 10px 0;
+	font-family: arial, sans-serif;
+}
+
+a,
+a:visited {
+	color: #465c63;
+}
+
+section, #home footer {
+	display: block;
+}
+
+/* clear fix for IE 6 */
+
+.clear {
+	clear: both;
+	display: block;
+	font-size: 1px;
+	height: 0px;
+	line-height: 0px;
+	margin: -1px 0 0;
+	padding: 0;
+	width: 100%;
+}
+
+/* header
+---------------------------------------- */
+
+header {
+	width: 100%;
+	height: 111px;
+	display: block;
+	position: relative;
+	z-index: 30;
+	background: url(../images/sitewide/header.gif) repeat-x left top;
+	color: #8d8773;
+	font-size: 11px;
+	z-index: 900;
+}
+
+header a {
+	text-decoration: none;
+	color: #8d8773;
+}
+
+#header-content {
+	width: 968px;
+	height: 111px;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+}
+
+/* logo */
+
+#thecharter {
+	display: block;
+	width: 198px;
+	height: 122px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	text-decoration: none;
+	background: url(../images/sitewide/thecharter.png) no-repeat;
+	z-index: 9999;
+}
+
+#thecharter span {
+	visibility: hidden;
+}
+
+/* main navigation */
+
+ul.nav {
+	height: 28px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: 0px;
+	right: -9px;
+	z-index: 40;
+	text-transform: uppercase;
+	line-height: 28px;
+	font-size: 10px;
+}
+
+ul.nav a {
+	color: #696562;
+}
+
+ul.nav li {
+	height: 28px;
+	padding: 0 9px;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+ul.nav li:hover, ul.nav li.hover, ul.nav li.current {
+	background: #efeeec;
+}
+
+ul.nav li:hover a, ul.nav li.hover a, ul.nav li.current a {
+	color: #4d607f;
+}
+
+/* main navigation dropdowns */
+
+ul.nav li ul {
+	width: 160px;
+	margin: 0;
+	padding: 1px 0 6px;
+	display: none;
+	position: absolute;
+	top: 28px;
+	left: 0;
+	z-index: 40;
+	text-transform: none;
+	background: #efeeec;
+	line-height: 14px;
+	font-size: 10px;
+}
+
+ul.nav.left li ul {
+	left: 0;
+}
+
+ul.nav.right li ul {
+	right: 0;
+}
+
+ul.nav li:hover ul, ul.nav li.hover ul {
+	display: block;
+}
+
+ul.nav li:hover ul a, ul.nav li.hover ul a {
+	width: 140px;
+	display: block;
+	color: #696562;
+}
+
+ul.nav li ul li {
+	width: 140px;
+	height: auto;
+	padding: 4px 10px 0;
+}
+
+ul.nav.right li ul li {
+	width: 100px;
+	height: auto;
+	padding: 0 0 0 10px;
+}
+
+ul.nav li ul li a:hover, ul.nav li ul li a.hover {
+	color: #4d607f;
+}
+
+/* subnav */
+
+#subnav {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 40px;
+	left: 230px;
+	list-style: none;
+	font: 11px Georgia, "Times New Roman", Times, serif;
+	color: #fff;
+	font-style: italic;
+}
+
+#subnav li {
+	margin-left: 8px;
+	padding-left: 8px;
+	float: left;
+	background: url(../images/sitewide/ul-li.png) no-repeat left;
+}
+
+#subnav li.divider {
+	padding: 0;
+	background: none;
+}
+
+#subnav li a {
+	color: #fff;
+}
+
+/* search */
+
+#search {
+	width: 108px;
+	height: 19px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 35px;
+	right: 0;
+	font-size: 9px;
+	color: #363636;
+	line-height: 19px;
+}
+
+#search input.search-input {
+	width: 82px;
+	height: 14px;
+	margin: 0;
+	padding: 3px 6px 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 9px;
+	color: #363636;
+	border: 1px solid #b6b4a6;
+}
+
+#search input.search-submit {
+	width: 26px;
+	height: 19px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/* weather */
+
+ul#weather {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 40px;
+	left: 220px;
+	line-height: 22px;
+	font: 11px Georgia, "Times New Roman", Times, serif;
+	color: #fff;
+	font-style: italic;
+}
+
+ul#weather a {
+	color: #fff;
+}
+
+ul#weather li {
+	margin-right: 4px;
+	padding-left: 8px;
+	float: left;
+	list-style-type: none;
+	background: url(../images/sitewide/ul-li.png) no-repeat left;
+}
+
+ul#weather li.divider {
+	padding: 0;
+	background: none;
+}
+
+#weather li.temperature {
+	background: none;
+}
+
+#weather li.temperature a {
+	height: 32px;
+	display: inline-block;
+	position: absolute;
+	top: -10px;
+	background: url(../images/sitewide/temperature.png) no-repeat;
+	padding-left: 56px;
+	font-size: 24px;
+	font-weight: normal;
+	font-style: normal;
+}
+
+header #weather li.cloudy a, header #weather li.dust a, header #weather li.foggy a, header #weather li.haze a, header #weather li.smoky a {
+	background: url(../images/sitewide/cloudy.png) no-repeat left 2px;
+}
+
+header #weather li.mostlycloudy a, header #weather li.mostly_cloudy_night a, header #weather li.mostly_cloudy_day a {
+	background: url(../images/sitewide/mostlycloudy.png) no-repeat left top;
+}
+
+header #weather li.partlycloudy a, header #weather li.partly_cloudy_night a, header #weather li.partly_cloudy_day a, header #weather li.partly_cloudy a {
+	background: url(../images/sitewide/partlycloudy.png) no-repeat left -4px;
+}
+
+header #weather li.rainshowers a, header #weather li.mixed_rain_and_sleet a, header #weather li.drizzle a, header #weather li.showers a, header #weather li.mixed_rain_and_hail a {
+	background: url(../images/sitewide/rainshowers.png) no-repeat 5px top;
+}
+
+header #weather li.snow a, header #weather li.mixed_rain_and_snow a, header #weather li.mixed_snow_and_sleet a, header #weather li.freezing_drizzle a, header #weather li.freezing_rain a, header #weather li.snow_flurries a, header #weather li.light_snow_showers a, header #weather li.blowing_snow a, header #weather li.hail a, header #weather li.sleet a, header #weather li.cold a, header #weather li.heavy_snow a, header #weather li.scattered_snow_showers a, header #weather li.snow_showers a {
+	background: url(../images/sitewide/snow.png) no-repeat 10px top;
+}
+
+header #weather li.thunderstorm a, header #weather li.severe_thunderstorms a, header #weather li.thunderstorms a, header #weather li.isolated_thunderstorms a, header #weather li.scattered_thunderstorms a, header #weather li.scattered_showers a, header #weather li.thundershowers a, header #weather li.isolated_thundershowers a {
+	background: url(../images/sitewide/thunderstorm.png) no-repeat 5px top;
+}
+
+header #weather li.windy a, header #weather li.tornado a, header #weather li.tropical_storm, header #weather li.hurricane a, header #weather li.blustery a, {
+	background: url(../images/sitewide/windy.png) no-repeat -3px 5px;
+}
+
+header #weather li.sunny a, header #weather li.clear_night a, header #weather li.fair_night a, header #weather li.fair_day a, header #weather li.hot a, header #weather li.not_available a {
+	background: url(../images/sitewide/sunny.png) no-repeat 6px top;
+}
+
+#weather .snow-report {
+	background: url(../images/sitewide/icon-snow.png) no-repeat left;
+	padding-left: 13px;
+}
+
+/* primary container
+---------------------------------------- */
+
+#primary {
+	width: 100%;
+	padding: 38px 0;
+	display: block;
+	background: #fff url(../images/sitewide/primary.gif) repeat-x left top;
+}
+
+/* primary page header */
+
+#primary h2#left-nav-title {
+	width: 126px;
+	height: 17px;
+	margin: 0;
+	padding: 10px 0 6px 10px;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #4d607f;
+	background: url(../images/standard/primary-h1.gif) repeat-x;
+	font: normal normal 13px/15px Georgia, "Times New Roman", Times, serif;
+}
+
+#primary h2#left-nav-title a {
+	color: #4d607f;
+	text-decoration: none;
+}
+
+/* homepage
+---------------------------------------- */
+
+#main-container {
+	position: relative;
+	height: 490px;
+}
+
+#home-flash {
+	width: 100%;
+	height: 498px;
+	background: #c3bda5 url(../images/homepage/Static-Charter.jpg) no-repeat center;
+}
+
+#home-promos {  
+	width: 968px;
+	margin: 0 auto;
+	clear: both;
+	font-size: 9px;
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	margin-left: -480px;
+	color: #363636;
+}
+
+#home-promos h2 {
+	margin: 0 0 5px 0;
+	color: #4d607f;
+	font: normal 16px Georgia, "Times New Roman", Times, serif;
+}
+
+#home-promos p {
+	font-size: 11px;
+	margin-top: 7px;
+	color: #636361;
+}
+
+body #home-promos .double {
+	width: 442px;
+	height: 113px;
+	margin: 0;
+	padding: 8px 24px 0 12px;
+	float: left;
+	position: relative;
+	background: url(../images/homepage/home_promo_bg_dbl.png) no-repeat scroll 0 0;
+	font-weight: bold;
+}
+
+/* travel planner */
+
+#form-selector,
+#form-lodging,
+#form-flight,
+#form-lodging-flight {
+	display: none;
+}
+
+.accessibility {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+#travel-planner {
+	margin-right: 10px;
+}
+
+#travel-planner {
+	position: relative;
+	overflow: hidden;
+	width: 440px;
+	height: 112px;
+	background: url('../images/home/promo_box_large.png') top left no-repeat;
+	padding: 15px;
+}
+
+#promo-code-link a,
+#promo-code-link a:visited {
+	position: absolute;
+	bottom: 10px;
+	left: 17px;
+	text-align: right;
+	color: #465c63;
+	font-size: 11px;
+	text-decoration: none;
+}
+
+#promo-code-link a:hover {
+	text-decoration: underline;
+}
+
+#travel-planner {
+	font-size: 10px;
+	line-height: 15px;	
+}
+
+#travel-planner label {
+	color: #666666;
+}
+
+#travel-planner form ul.col1,
+#travel-planner form ul.col2, 
+#travel-planner form ul.col3 {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#travel-planner form ul.col1 {
+	position: absolute;
+	top: 30px;
+	left: 15px;
+}
+
+#travel-planner form ul.col2, 
+#travel-planner form ul.col3 {
+	position: absolute;
+	top: 15px;
+	margin: 0;
+	text-align: right;
+	padding-top: 3px;
+}
+
+#travel-planner form ul.col2 {
+	left: 150px;
+}
+
+#travel-planner form ul.col3 {
+	right: 15px;
+}
+
+#travel-planner form ul.col2 li, 
+#travel-planner form ul.col3 li {
+	margin-bottom: 4px;
+}
+
+#travel-planner form ul.col2 li input, 
+#travel-planner form ul.col3 li input {
+	width: 80px;
+	height: 12px;
+	border: none;
+	color: #808080;
+	font-size: 9px;
+	padding: 1px;
+	margin-left: 5px;
+	line-height: 10px;
+}
+
+#travel-planner form ul.col2 li input.date {
+	width: 66px;
+}
+
+#travel-planner form ul.col2 li select,
+#travel-planner form ul.col3 li select {
+	border: none;
+	height: 18px;
+	padding: 0;
+	width: 62px;
+	margin-left: 5px;
+	font-size: 10px;
+	line-height: 10px;
+}
+
+#travel-planner form#form-flights ul.col2 li select {
+	width: 82px;
+}
+
+#travel-planner form ul li select.number {
+	width: 45px;
+}
+
+#travel-planner form ul li select.area2 {
+	width: 82px;
+}
+
+.promos-bttn,
+a.promos-bttn {
+	line-height: 10px;
+	color: #eaedef;
+	text-decoration: none;
+	width: 62px;
+	height: 16px;
+	float: right;
+	display: block;
+	background: url(../images/homepage/btn_search.jpg) no-repeat left;
+	font-size: 7pt;
+	text-align: center;
+	padding-top: 3px;
+}
+
+#travel-planner-submit .promos-bttn {
+	display: block;
+	height: 18px;
+	line-height: 18px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	line-height: 18px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#travel-planner #travel-planner-submit .promos-bttn {
+	position: absolute;
+	right: 17px;
+	bottom: 11px;
+}
+
+.box #travel-planner-submit .promos-bttn {
+	float: left;
+	margin: 10px 0 0;
+}
+
+#travel-planner-submit .promos-bttn span {
+	visibility: hidden;
+}
+
+#home-promos form {
+	font-family: arial, sans-serif;
+	padding: 0;
+	margin: 0;
+	height: 88px;
+}
+
+#home-promos #checkboxes .form-field {
+	margin-bottom: 5px;
+}
+
+#home-promos #textboxes .form-field {
+	margin-bottom: 2px;
+}
+
+#home-promos #dropdowns .form-field {
+	margin-bottom: 5px;
+}
+
+
+#home-promos #checkboxes {
+	float: left;
+	width: 140px;
+}
+
+#home-promos #checkboxes input { margin: 0 3px 0 0; }
+#home-promos #textboxes {
+	text-align: right;
+	float: left;
+	width: 160px;
+}
+
+#home-promos #textboxes input, 
+#home-promos #textboxes select {
+	margin: 0px 0 0px 8px;
+	padding: 0;
+	font-size: 9px;
+	color: #808080;
+}
+
+#home-promos #textboxes input { 
+	width: 62px; 
+	padding: 2px 4px 2px;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	color: #808080;
+}
+
+#home-promos #textboxes input#airport { width: 74px; }
+#home-promos #textboxes select { width: 84px; }
+#home-promos #dropdowns {
+	float: right;
+	text-align: right;
+}
+
+#home-promos #dropdowns select { 
+	margin: 0 0 0 5px;
+	font-size: 9px;
+	color: #9f9f9f;
+	width: 36px;
+}
+
+#dropdowns #submit { margin-top: 5px; }
+
+#home-promos input.date { border-right: 0 none; }
+
+/* Date popup */
+
+form .dp-choose-date {
+	background:url("../images/sitewide/reserves-calendar.gif") no-repeat scroll center center #ffffff;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0;
+	height: 12px;
+	line-height: 0;
+	padding: 1px;
+	margin-top: 1px;
+	vertical-align: top;
+	width: 12px;
+}
+
+.box form .dp-choose-date {
+	position: absolute;
+	right: 0;
+	bottom: 2px;
+}
+
+/* home promos */
+
+#home-promos .promo {  
+	background: url(../images/homepage/home_promo_bg.png) no-repeat scroll 0 0;
+	width: 212px;
+	height: 113px;
+	float: left;
+	margin-left: 10px;
+	padding: 8px 12px 0 10px;
+}
+
+#home-promos .promo h2.spacer {
+	float: left;
+	margin-bottom: 8px;
+}
+
+#home-promos .promo a.view { float: right; }
+#home-promos .promo a { 
+	color: #c68f39;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 10px;
+}
+
+/* homepage #home footer */
+
+footer {
+	width: 100%;
+	background: #EDE7D9 url(../images/homepage/bottom_bg.jpg) repeat-x scroll 0 0;
+	/*min-height: 220px;*/
+	display: block;
+	overflow: hidden;
+}
+
+#social-media {
+	 
+	padding-top: 13px; 
+}
+
+footer #columns {
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+	margin-top: 12px;
+}
+
+#columns h3 {
+	color: #6c6650;
+	font-weight: normal;
+	font-size: 13px;
+	margin-bottom: 0;
+	margin-top: 8px;
+	font-family: arial, sans-serif;
+}
+
+#columns p {
+	font-size: 11px;
+	color: #808080;
+	line-height: 16px;
+	margin: 5px 0;
+}
+
+footer #footer-content .footer-box ul {
+	padding: 0 0 0 14px;
+	margin: 0;
+	font-size: 11px;
+}
+
+footer .column {
+	float: left;
+	width: 200px;
+	background: url(../images/homepage/separator.jpg) no-repeat scroll 0 0;
+	padding: 0 20px;
+}
+
+footer #columns .first {
+	background: none;
+}
+
+footer #columns .last {
+	padding: 0 0 0 20px;
+}
+
+footer #footer-content {
+	width: 968px;
+	margin: 0 auto;
+	padding: 20px 0 20px;
+	overflow: hidden;
+	border-bottom: 1px solid #696562;
+}
+
+footer #footer-content .footer-box {
+	width: 213px;
+	min-height: 115px;
+	padding: 0 24px 0 10px;
+	float: left;
+	font-size: 11px;
+	border-right: 1px solid #bcbdab;
+}
+
+footer #footer-content .footer-box a {
+	color: #465C63;
+	text-decoration: underline;
+}
+
+footer #footer-content .footer-box a:hover {
+	text-decoration: none;
+}
+
+footer #footer-content .footer-box.last {
+	padding: 0 0 0 10px;
+	border-right: none;
+}
+
+footer #footer-content .last p {
+	clear: both;
+}
+
+footer #footer-content .footer-box h4 {
+	margin: 0;
+	color: #363636;
+	text-transform: uppercase;
+	font: 10px Georgia, "Times New Roman", Times, serif;
+}
+
+ ul#social {
+	float: right;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+ ul#social li {
+	width: 16px;
+	height: 16px;
+	margin-right: 6px;
+	float: left;
+	list-style-type: none;
+}
+
+ ul#social li a {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	text-decoration: none;
+	background: url(../images/sitewide/social-twitter.gif) no-repeat;
+}
+
+ ul#social li.twitter a {
+	background: url(../images/sitewide/social-twitter.gif) no-repeat;
+}
+
+ ul#social li.facebook a {
+	background: url(../images/sitewide/social-facebook.gif) no-repeat;
+}
+
+ ul#social li.flickr a {
+	background: url(../images/sitewide/social-linkedin.gif) no-repeat;
+}
+
+ ul#social li.youtube a {
+	background: url(../images/sitewide/social-youtube.gif) no-repeat;
+}
+
+ ul#social li.blog a {
+	background: url(../images/sitewide/social-blog.gif) no-repeat;
+}
+
+  ul#social li a span {
+	display: none;
+}
+
+
+/* footer-nav */
+.footer-nav {
+	color: #696562;
+	font-size: 10px;
+	margin: 0 auto;
+	width: 968px;
+	padding: 20px 0 20px 20px;
+}
+
+.footer-nav a {
+	color: #696562;
+	text-decoration: none;
+}
+
+.footer-nav a img {
+	position: relative;
+	top: 5px;
+}
+
+.footer-nav a:hover {
+	text-decoration: underline;
+}
+/* generic page
+---------------------------------------- */
+
+#page {
+	width: 968px;
+	margin: 0 auto;
+	padding: 0;
+	display: block;
+	position: relative;
+}
+
+/* standard tier 1 page
+---------------------------------------- */
+
+/* left navigation */
+
+#page ul#left-nav {
+	width: 136px;
+	margin: 33px 0 0;
+	padding: 0;
+	float: left;
+	font-size: 10px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #d0d1c5;
+}
+
+#page ul#left-nav li {
+	list-style-type: none;
+	line-height: 12px;
+	border-top: 1px solid #d0d1c5;
+	border-left: 1px solid #d0d1c5;
+	border-right: 1px solid #d0d1c5;
+}
+
+#page ul#left-nav li a {
+	width: 105px;
+	padding: 7px 20px 7px 9px;
+	display: block;
+	overflow: hidden;
+	text-decoration: none;
+	color: #696562;
+	background: #f5f5ea;
+}
+
+#page ul#left-nav li a:hover {
+	color: #4d607f;
+	background: #f5f5ea url(../images/standard/left-nav-li-a-hover.gif) no-repeat 120px center;
+}
+
+#page ul#left-nav li.last a:hover {
+	color: #4d607f;
+	background: #f5f5ea url(../images/standard/left-nav-li-a-hover.gif) no-repeat 120px 10px;
+}
+
+#page ul#left-nav li.current a {
+	color: #4d607f;
+	background: #ebe6ce url(../images/standard/left-nav-li-current-a-hover.gif) no-repeat 120px center;
+}
+
+/* left navigation sub items */
+
+#page ul#left-nav li.expanded a {
+	padding-bottom: 4px;
+	background: #eae8da;
+}
+
+#page ul#left-nav li.expanded a:hover {
+	background: #eae8da url(../images/standard/left-nav-li-current-a-hover.gif) no-repeat 120px center;
+}
+
+#page ul#left-nav li ul {
+	margin: 0;
+	padding: 0 0 4px;
+	text-transform: none;
+	background: #eae8da;
+}
+
+#page ul#left-nav li ul li {
+	border: none;
+}
+
+#page ul#left-nav li ul li a {
+	width: 115px;
+	padding: 2px 9px;
+	color: #4d607f;
+}
+
+#page ul#left-nav li ul li.current a {
+	background: #eae8da url(../images/standard/left-nav-li-current-a-hover.gif) no-repeat 120px center;
+}
+
+#page ul#left-nav li ul.hideChildren {
+	display: none;
+}
+
+/* page content */
+
+#page #content {
+	width: 576px;
+	margin: 0;
+	padding: 0 20px 10px;
+	float: left;
+	display: block;
+	overflow: hidden;
+}
+
+#page #content h1 {
+	margin: 0 0 18px;
+	padding: 0 0 4px;
+	color: #4d607f;
+	font: normal normal 18px Georgia, "Times New Roman", Times, serif;
+	border-bottom: 1px solid #ebe6ce;
+}
+
+#page #content h2 {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	color: #4d607f;
+	background: none;
+	font: bold 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+#page #content h3 {
+	font-size: 12px;
+	color: #6C6650;
+}
+
+/* page table */
+
+#page #content h4.table-header {
+	width: auto;
+	height: 15px;
+	display: block;
+	float: left;
+	margin: 10px 0 0;
+	padding: 8px 10px 2px;
+	position: relative;
+	color: #fff;
+	background: url(../images/standard/h4-table-header.gif) no-repeat left;
+	text-transform: uppercase;
+	font: 10px/10px Georgia, "Times New Roman", Times, serif;
+}
+
+#page #content h4.table-header span {
+	width: 5px;
+	height: 25px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	background: url(../images/standard/h4-table-header-span.gif) no-repeat right;
+}
+
+#page #content table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#page #content table tr th {
+	padding: 5px 11px;
+	background-color: #928269;
+	border-bottom: 1px solid #dbd9d7;
+	color: #FFFFFF;
+	text-align: left;
+	font-style: normal;
+	font-size: 11px;
+	font-variant: normal;
+}
+
+#page #content table tr th * {
+	color: #ffffff;
+}
+
+#page #content table tr th.second {
+	border-left: 1px solid #f1f7fb;
+}
+
+#page #content table {
+	border: 1px solid #dbd9d7;
+}
+
+#page #content table tr td {
+	padding: 5px 11px;
+	background: #F9F6ED;
+	border-bottom: 1px solid #dbd9d7;
+	font-size: 11px;
+	color: #696562;
+}
+
+#page #content table tr td.second {
+	border-left: 1px solid #dbd9d7;
+	color: #696562;
+}
+
+#page #content table tr td.last {
+	border-bottom: none;
+}
+
+/* rfp form */
+
+#page.rfp #content h1 {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+#page #content form {
+	font-size: 11px;
+}
+
+#page #content form fieldset {
+	margin: 5px 0 15px;
+	padding: 20px 0 0;
+	position: relative;
+	border: none;
+	border-top: 1px solid #ebe6ce;
+}
+
+#page #content form fieldset.no-border {
+	border: 0;
+}
+
+#page #content form fieldset .legend {
+	width: 126px;
+	margin-bottom: 12px;
+	color: #405271;
+	font-weight: bold;
+	text-align: right;
+}
+
+#page #content form fieldset label {
+	width: 126px;
+	margin-right: 5px;
+	display: inline-block;
+	text-align: right;
+}
+
+#page #content form fieldset div {
+	margin-bottom: 9px;
+}
+
+#page #content form fieldset div label span {
+	display: none;
+}
+
+#page #content form fieldset div.required label span {
+	display: inline;
+}
+
+#page #content form fieldset .field input {
+	height: 16px;
+	border: 1px solid #d1d1d1;
+	font-size: 11px;
+}
+
+#page #content form fieldset .field.full input {
+	width: 376px;
+}
+
+#page #content form fieldset .field.half input {
+	width: 179px;
+}
+
+#page #content form fieldset .field.quarter input {
+	width: 83px;
+}
+
+#page #content form fieldset .select.full select {
+	width: 376px;
+}
+
+#page #content form fieldset .select.half select {
+	width: 179px;
+}
+
+#page #content form fieldset .select.quarter select {
+	width: 83px;
+}
+
+#page #content form fieldset .checkbox input.text {
+	height: 16px;
+	border: 1px solid #d1d1d1;
+	font-size: 11px;
+}
+
+#page #content form fieldset .textarea label {
+	vertical-align: top;
+}
+
+#page #content form fieldset .textarea textarea {
+	width: 376px;
+	height: 64px;
+	resize: vertical;
+	border: 1px solid #d1d1d1;
+	font-size: 11px;
+}
+
+#content .photo {
+	position: relative;
+	margin-bottom: 1em;
+}
+
+#content .photo .more-photos {
+	background: url("../images/accommodations/room-image-more.gif") no-repeat scroll 0 0 transparent;
+	bottom: 15px;
+	display: block;
+	height: 17px;
+	left: 16px;
+	position: absolute;
+	text-decoration: none;
+	width: 93px;
+}
+
+#content .photo .more-photos span {
+	visibility: hidden;
+}
+
+/* aside */
+
+#page aside {
+	width: 209px;
+	display: block;
+	float: right;
+}
+
+#page aside .box {
+	width: 185px;
+	margin-bottom: 12px;
+	padding: 11px;
+	position: relative;
+	overflow: hidden;
+	background: #f5f5ea url(../images/standard/box.gif) repeat-y;
+}
+
+#page aside .box .box-top {
+	width: 207px;
+	height: 6px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url(../images/standard/box-top.gif) 0 top;
+	line-height: 6px;
+	font-size: 6px;
+}
+
+#page aside .box .box-bottom {
+	width: 207px;
+	height: 6px;
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: url(../images/standard/box-bottom.gif) 0 bottom;
+	line-height: 6px;
+	font-size: 6px;
+}
+
+#page aside .box h3 {
+	width: 100%;
+	margin: 0 0 12px;
+	padding: 0 0 7px;
+	display: block;
+	position: relative;
+	color: #4d607f;
+	text-transform: uppercase;
+	font: normal normal 12px Georgia, "Times New Roman", Times, serif;
+}
+
+#page aside .box h3 span {
+	position: absolute;
+	right: 0;
+	top: 2px;
+	font: 11px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+/* aside travel planner form */
+
+#page aside .box form {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font-size: 10px;
+	font-weight: normal;
+	font-style: normal;
+}
+
+#page aside .box form ul {
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+#page aside .box form ul li {
+	list-style-type: none;
+}
+
+#page aside .box form ul li.form-item {
+	position: relative;
+	width: 79px;
+	margin-right: 10px;
+	float: left;
+	display: inline;
+}
+
+#page aside .box form ul li.form-item.end {
+	margin-right: 0px;
+}
+
+#page aside .box form ul li.form-small {
+	float: left;
+	margin-right: 15px;
+	padding-top: 10px;
+}
+
+#page aside .box form ul li.form-small.end {
+	margin-right: 0px;
+}
+
+#page aside .box form ul li.form-small label {
+	margin-bottom: 4px;
+	display: block;
+	line-height: 12px;
+}
+
+#page aside .box form ul li.form-small select {
+	width: 40px;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #d7d7d7;
+	font-size: 9px;
+}
+
+#page aside .box form#form-selector {
+	margin-bottom: 10px;
+}
+
+#page aside .box form#form-selector ul {
+	width: 130px;
+}
+
+#page aside .box form ul li.form-inline {
+	line-height: 20px;
+}
+
+#page aside .box form ul li.form-inline.end {
+	margin-bottom: 8px;
+}
+
+#page aside .box form ul li.form-inline input {
+	margin: 0 4px 0 0;
+	padding: 0;
+}
+
+#page aside .box form ul li.form-inline label {
+	color: #4d607f;
+}
+
+#page aside .box form ul li.form-item input {
+	width: 79px;
+	margin: 0;
+	padding: 0;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border: 1px solid #dedece;
+	font-size: 9px;
+}
+
+#page aside .box form ul li.form-item select {
+	width: 79px;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #dedece;
+	font-size: 9px;
+}
+
+#page aside .box form ul li.form-buttons {
+	margin: 0;
+	padding: 0;
+}
+
+#page aside .box form ul li.form-buttons input {
+	width: 58px;
+	height: 17px;
+	margin: 15px 0 0;
+}
+
+#page aside .box form#form-lodging, #page aside .box form#form-lodging-flight {
+	display: none;
+}
+
+/* photo gallery promo */
+
+#page aside .box.gallery h3 {
+	margin: 0;
+}
+
+#page aside .box h3 a {
+	display: inline-block;
+	position: absolute;
+	top: -1px;
+	right: 0;
+	text-decoration: none;
+	font-size: 10px;
+	color: #4d607f;
+	font-weight: bold;
+}
+
+#page aside .box h3 a span {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+#page aside .box h3 a:hover {
+	text-decoration: underline;
+}
+
+#page aside .box img#photo-gallery {
+	margin: 5px 0 0;
+	-webkit-box-shadow: 3px 3px 5px #e1e1e1;
+	-moz-box-shadow: 3px 3px 5px #e1e1e1;
+}
+
+/* brochure box */
+
+#page aside .box.brochure {
+	padding-top: 46px;
+	background: #f1f7fc url(../images/standard/box-brochure.gif) repeat-y;
+}
+
+#page aside .box.brochure .box-top {
+	height: 32px;
+	background: url(../images/standard/box-brochure-top.gif) no-repeat;
+}
+
+#page aside .box.brochure .box-bottom {
+	bottom: -1px;
+	background: url(../images/standard/box-brochure-bottom.gif) no-repeat;
+}
+
+#page aside .box.brochure h3 {
+	position: absolute;
+	top: 8px;
+	left: 10px;
+	margin: 2px 0;
+	color: #fff;
+	background: url(../images/standard/box-brochure-h3.gif) repeat-y;
+}
+
+#page aside .box.brochure p {
+	width: 90px;
+	margin: 0;
+	float: left;
+	color: #4d607f;
+	font-size: 10px;
+	line-height: 12px;
+}
+
+#page aside .box.brochure a.download {
+	width: 74px;
+	height: 17px;
+	display: block;
+	position: absolute;
+	top: 145px;
+	left: 12px;
+	background-image: url(../images/standard/brochure-download.gif);
+	text-decoration: none;
+}
+
+#page aside .box.brochure a.download span {
+	visibility: hidden;
+}
+
+#page aside .box.brochure a.img {
+	float: right;
+	margin-bottom: 8px;
+}
+
+/* accommodations tier 1 page
+---------------------------------------- */
+
+#page.accommodations #content h1 {
+	margin: 0 0 2px;
+	border-bottom: none;
+}
+
+#page.accommodations #content #room-image {
+	width: 573px;
+	height: 374px;
+	margin-bottom: 18px;
+	position: relative;
+}
+
+#page.accommodations #content #room-image img {
+	border: 5px solid #c9c2ac;
+}
+
+#page.accommodations #content #room-image a {
+	width: 93px;
+	height: 17px;
+	display: block;
+	position: absolute;
+	bottom: 15px;
+	left: 16px;
+	text-decoration: none;
+	background: url(../images/accommodations/room-image-more.gif) no-repeat;
+}
+
+#page.accommodations #content #room-image a span {
+	visibility: hidden;
+}
+
+/* photo gallery
+---------------------------------------- */
+
+#page.gallery #content {
+	width: 800px;
+	padding: 0 0 10px 20px;
+}
+
+#page.gallery #content #gallery-nav {
+	width: 780px;
+	height: 32px;
+	margin: 10px 0 3px;
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+
+#page.gallery #content #gallery-nav h1 {
+	width: auto;
+	display: inline;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: none;
+}
+
+#page.gallery #content #gallery-nav ul {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 126px;
+	top: 8px;
+	display: inline-block;
+	text-transform: uppercase;
+	color: #696562;
+	font: 10px Georgia, "Times New Roman", Times, serif;
+}
+
+#page.gallery #content #gallery-nav ul li {
+	margin-left: 12px;
+	float: left;
+	list-style-type: none;
+}
+
+#page.gallery #content #gallery-nav ul li a {
+	text-decoration: none;
+	color: #696562;
+}
+
+#page.gallery #content #gallery-nav ul li a.current, #page.gallery #content #gallery-nav ul li a:hover {
+	color: #4d607f;
+}
+
+#page.gallery #content a.thumb {
+	width: 188px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	float: left;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #696562;
+	font: 10px Georgia, "Times New Roman", Times, serif;
+}
+
+#page.gallery #content a.thumb img {
+	margin-bottom: 5px;
+	border: none;
+}
+
+#page.gallery #content a.thumb:hover {
+	color: #4d607f;
+}
+
+#page.gallery #content .rule {
+	width: 782px;
+	height: 1px;
+	margin: 12px 0 9px;
+	float: left;
+	border-top: 1px solid #ebe6ce;
+	line-height: 1px;
+	font-size: 1px;
+}
+
+/* guest survey
+---------------------------------------- */
+
+#page.survey #content form {
+	width: 580px;
+	padding-top: 20px;
+	border-top: 1px solid #b9b9b9;
+}
+
+#page.survey #content form input {
+	font-size: 11px;
+}
+
+/* default form table */
+
+#page.survey #content form table {
+	width: 580px;
+	padding: 0;
+	border: none;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	line-height: 13px;
+}
+
+#page.survey #content form table tr th {
+	padding: 8px 10px;
+	vertical-align: bottom;
+	text-align: center;
+}
+
+#page.survey #content form table tr th.first {
+	width: 180px;
+	text-align: left;
+}
+
+#page.survey #content form table tr td.first {
+	width: 180px;
+}
+
+#page.survey #content form table tr td {
+	width: 47px;
+	padding: 4px 11px;
+	background-color: #fff;
+	border: none;
+}
+
+#page.survey #content form table tr.odd td {
+	background-color: #f1f7fc;
+}
+
+/* standard textarea for comments */
+
+#page.survey #content form .textarea {
+	margin: 8px 0 27px;
+}
+
+#page.survey #content form .textarea label {
+	margin: 0 0 3px 11px;
+	display: block;
+	font-weight: bold;
+}
+
+#page.survey #content form .textarea textarea {
+	width: 578px;
+	height: 52px;
+	resize: vertical;
+	border: 1px solid #b9b9b9;
+}
+
+/* rental location */
+
+#page.survey #content form table.rentals-location tr td.first {
+	width: 290px;
+}
+
+#page.survey #content form table.rentals-location tr td {
+	width: 100px;
+}
+
+#page.survey #content form table.rentals-location tr td input.rentals-location {
+	width: 93px;
+	border: 1px solid #b9b9b9;
+}
+
+/* number of days skiing */
+
+#page.survey #content form table tr td.rentals-skidays {
+	width: 160px;
+}
+
+#page.survey #content form table tr td input.rentals-skidays {
+	width: 93px;
+	border: 1px solid #b9b9b9;
+}
+
+/* previous stay */
+
+#page.survey #content form table.previous-stay tr td.first {
+	width: 200px;
+}
+
+#page.survey #content form table.previous-stay tr td.spacer {
+	width: 200px;
+}
+
+/* multiple checkbox container */
+
+#page.survey #content form .multiple-checkbox {
+	padding-left: 11px;
+}
+
+#page.survey #content form .multiple-checkbox .title {
+	padding: 7px 0;
+}
+
+#page.survey #content form .multiple-checkbox .checkbox-set {
+	width: 113px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+#page.survey #content form .multiple-checkbox .checkbox-set input {
+	border: 1px solid #b9b9b9;
+}
+
+#page.survey #content form .multiple-checkbox .checkbox-set.double {
+	width: 226px;
+}
+
+#page.survey #content form .multiple-checkbox .checkbox-set.group-staying {
+	width: 226px;
+}
+
+#page.survey #content form .multiple-checkbox .checkbox-set input.hear-other {
+	width: 160px;
+	border: 1px solid #b9b9b9;
+}
+
+#page.survey #content form .multiple-checkbox.research {
+	background: #f1f7fb;
+}
+
+#page.survey #content form .multiple-checkbox.research .checkbox-set.trc {
+	width: 155px;
+}
+
+#page.survey #content form .multiple-checkbox.research .checkbox-set.vail {
+	width: 70px;
+}
+
+/* big rating table header */
+
+#page.survey #content form table.big-rating-header {
+	margin-top: 30px;
+}
+
+#page.survey #content form table.big-rating-header tr th {
+	text-align: left;
+}
+
+#page.survey #content form table.big-rating-header tr td {
+	padding: 6px 11px;
+	font-weight: bold;
+	color: #405271;
+	text-align: left;
+}
+
+#page.survey #content form table.big-rating-header tr td.center {
+	text-align: center;
+}
+
+#page.survey #content form table.big-rating-header tr td.right {
+	text-align: right;
+}
+
+#page.rfp #submit input,
+#page.survey #submit input,
+#page.promocode #submit input {
+	display: block;
+	float: left;
+	height: 18px;
+	line-height: 18px;
+	margin: 20px 0 0;
+	padding: 0;
+	background: url(../images/sitewide/btn-submit.png) no-repeat 0 0;
+	border: 0;
+	line-height: 18px;
+	text-align: left;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+
+/* mountain cams
+---------------------------------------- */
+
+#page.standard #content .standard {
+	width: 480px;
+}
+
+#page.standard #content h4.cam-title {
+	width: 458px;
+	margin: 0;
+	padding: 11px;
+	display: block;
+	float: left;
+	border-top: 1px solid #ebe6ce;
+	font-size: 12px;
+	color: #405271;
+}
+
+#page.standard #content .cam-caption {
+	width: 458px;
+	padding: 11px;
+	float: left;
+	background-color: #f5f5ea;
+	font-size: 11px;
+}
+
+#page.standard #content img {
+	width: 480px;
+	margin-bottom: 22px;
+}
+
+/* search results
+---------------------------------------- */
+
+#search_results a {
+	text-decoration: none;
+}
+
+#search_results #search {
+	width: 158px;
+	margin-bottom: 5px;
+	position: relative;
+	top: 0;
+}
+
+#search_results #search .search-input {
+	height: 11px;
+}
+
+#search_results #search .search-submit {
+	width: 62px;
+	height: 16px;
+}
+
+#search_results .result_item {
+	padding-bottom: 10px;
+	overflow: hidden;
+	display: block;
+	border-bottom: 1px solid #d1d1d1;
+}
+
+#search_results .result_item h3 {
+	margin-top: 10px;
+}
+
+#search_results b {
+	background-color: #354F70;
+	color: #fff;
+	padding: 0 5px;
+}
+
+/* error page
+---------------------------------------- */
+
+#page.error #content {
+	width: 600px;
+	margin: 0 auto;
+	padding: 0;
+	float: none;
+}
+
+#page.error #content h2 {
+	color: #4d607f;
+	font: 18px Georgia, "Times New Roman", Times, serif;
+}
+
+#page.error #content h1 {
+	margin: 30px 0;
+	padding: 0;
+	color: #696560;
+	font-size: 22px;
+	line-height: 31px;
+	border: none;
+}
+
+#page.error #content ul {
+	margin: 0 0 40px 20px;
+	padding: 0;
+	color: #696560;
+}
+
+#page.error #content ul li {
+	margin: 0 0 10px 0;
+}
+
+#page.error #content p {
+	margin: 0;
+	color: #4d607f;
+	line-height: 18px;
+}
+
+/* weather report
+---------------------------------------- */
+
+#page.weather #content table {
+	border: 1px solid #dcd9d7;
+}
+
+#page.weather #content table tr td {
+	border-right: 1px solid #dcd9d7;
+}
+
+#page.weather #content table tr td.temperature {
+	font-weight: bold;
+	text-align: center;
+}
+
+#page.weather #content table tr td.last {
+	border-right: none;
+}
