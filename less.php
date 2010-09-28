@@ -77,7 +77,7 @@
 				}
 				
 				if (!empty($def)) {
-					$arr[$k] = $this->processDefinitions($def);
+					$arr[$k] = array_merge($arr[$k], $this->processDefinitions($def));
 				}
 				
 				if (empty($arr[$k]['children'])) {
@@ -103,12 +103,7 @@
 				list($key, $item) = explode(':', trim($item));
 				
 				$item = trim($item);
-			
-				// handle global variables within definitions
-				// if (strpos($item, '@') === 0) {
-				// 							$var = str_replace('@', '', $item);
-				// 							$item = (!empty($this->variables[$var])) ? $this->variables[$var] : $item;
-				// 						}
+				
 				if (strpos($key, '@') !== false) {
 					$vars = array_merge((array)$vars, array(trim($key) => trim($item)));
 				} else {
@@ -178,11 +173,38 @@
 			return preg_replace('#(/\*.*?\*/)#s', '', $content);
 		}
 		
+		public function toCSS($parsed) {
+			$output = null;
+			foreach($parsed['styles'] as $selector => $attributes) {
+				if (preg_match('#^@media#', $selector) == true) {
+					$output .= $selector . " {\n" . $this->toCSS(array('styles' => $attributes['children'])) . "}\n\r";
+				} else {
+					$output .= $selector . " {\n" . $this->definitionsToCSS($attributes['definitions']) . "}\n\r";
+					$output .= $this->toCSS(array('styles' => $attributes['children']));
+				}
+				
+			}
+			
+			return $output;
+		}
+		
+		public function definitionsToCSS($def) {
+			$output = null;
+			foreach((array)$def as $key => $value) {
+				$output .= "\t" . $key . ((!empty($value)) ? ": " . $value . ";" : "") . "\n";
+			}
+			return $output;
+		}
+		
 		public function output() {
 			$this->parse();
 			
+			// echo "<pre>";
+			// 			var_dump($this->parsed);
+			// 			exit;
+			
 			echo "<pre>";
-			var_dump($this->parsed);
+			var_dump($this->toCSS($this->parsed));
 			exit;
 		}
 	}

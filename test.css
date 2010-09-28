@@ -8,7 +8,7 @@
 
 @media screen {
 	p.test {font-family:verdana,sans-serif;font-size:14px;@var2: #FFFFFF;}
-	p.set {font-family:verdana,sans-serif;font-size:14px;}
+	p.set {font-family:verdana,sans-serif;font-size:14px;a;a:hover;.something;}
 }
 /*@import url(http://images.apple.com/global/styles/base.css);*/
 /*@media print {
@@ -18,13 +18,15 @@
 	p.test {font-weight:bold;}
 }*/
 
-
 [title~=hello] { color:blue; }
 
 body {
 	text-align: center;
 	font: 12px arial, helvetica;
 	padding: @var1;
+	a {
+		font: 15px arial, helvetica;
+	}
 }
 
 body div {
