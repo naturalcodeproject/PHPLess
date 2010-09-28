@@ -23,7 +23,7 @@
 body {
 	text-align: center;
 	font: 12px arial, helvetica;
-	padding: (@var1 * 5% + 1px);
+	padding: @var1 * 5% + 1px;
 	a {
 		font: 15px arial, helvetica;
 		span {

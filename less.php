@@ -210,7 +210,11 @@
 					$value = str_replace($var, $val, $value);
 				}
 				
-				$value = preg_replace_callback('#\((?:[^\(\)]++|(?R))*\)#im', array($this, 'doCalc'), $value);
+				$value = preg_replace_callback('#(?<!url)\((?:[^\(\)]++|(?R))*\)#im', array($this, 'doCalc'), $value);
+				
+				if (preg_match('#([0-9]+)*([\*\+\-\/\(\)]+)#im', $value)) {
+					$value = $this->doCalc($value);
+				}
 				
 				$output .= "\t" . $key . ((!empty($value)) ? ": " . $value . ";" : "") . "\n";
 			}
@@ -218,12 +222,13 @@
 		}
 		
 		private function doCalc($val) {
-			$ext = null;
-			$val = preg_replace('#(auto)+#ims', '0', $val);
 			
+			$ext = null;
 			if (is_array($val)) {
 				$val = implode('', $val);
 			}
+			
+			$val = preg_replace('#(auto)+#ims', '0', $val);
 			
 			if (preg_match('#%|in|cm|mm|em|ex|pt|pc|px#ims', $val, $matches)) {
 				$ext = implode('', $matches);
