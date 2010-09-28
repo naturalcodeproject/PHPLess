@@ -23,14 +23,20 @@
 body {
 	text-align: center;
 	font: 12px arial, helvetica;
-	padding: @var1;
+	padding: (@var1 * 5% + 1px);
 	a {
 		font: 15px arial, helvetica;
+		span {
+			background: transparent url("../images/bg.jpg") no-repeat top left;
+		}
 	}
 }
 
 body div {
 	border: @var3;
+	a, span, p {
+		color: #fff;
+	}
 }
 
 /*
@@ -44,6 +50,12 @@ a,
 a:link, 
 a:visited {
 	color: #fff;
+	span {
+		text-align: center;
+		p, span, aside {
+			text-align: right;
+		}
+	}
 }
 
 a:hover {

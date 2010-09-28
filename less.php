@@ -100,7 +100,7 @@
 			$vars = array();
 			$definitions = explode(';', trim($this->fixDefinitions($definitions), ';'));
 			foreach($definitions as $key => &$item) {
-				list($key, $item) = explode(':', trim($item));
+				@list($key, $item) = explode(':', trim($item));
 				
 				$item = trim($item);
 				
@@ -173,14 +173,17 @@
 			return preg_replace('#(/\*.*?\*/)#s', '', $content);
 		}
 		
-		public function toCSS($parsed) {
+		public function toCSS($parsed, $parentSelector = null, $parentVars = array()) {
 			$output = null;
 			foreach($parsed['styles'] as $selector => $attributes) {
 				if (preg_match('#^@media#', $selector) == true) {
 					$output .= $selector . " {\n" . $this->toCSS(array('styles' => $attributes['children'])) . "}\n\r";
 				} else {
-					$output .= $selector . " {\n" . $this->definitionsToCSS($attributes['definitions']) . "}\n\r";
-					$output .= $this->toCSS(array('styles' => $attributes['children']));
+					$selector = $this->processSelector($selector, $parentSelector);
+					$output .= $selector . " {\n" . $this->definitionsToCSS($attributes['definitions'], array_merge( ((isset($attributes['variables'])) ? (array)$attributes['variables'] : array()), ((!empty($parentVars)) ? (array)$parentVars : array())) ) . "}\n\r";
+					if (!empty($attributes['children'])) {
+						$output .= $this->toCSS(array('styles' => $attributes['children']), $selector);
+					}
 				}
 				
 			}
@@ -188,12 +191,50 @@
 			return $output;
 		}
 		
-		public function definitionsToCSS($def) {
+		private function processSelector($selector, $parent) {
+			$parent = explode(',', (string)$parent);
+			$selector = explode(',', (string)$selector);
+			$return = array();
+			foreach($selector as $i) {
+				foreach($parent as $t) {
+					$return[] = trim(trim( $t ) . ' ' . trim( $i ) );
+				}
+			}
+			return trim(implode(', ', $return), ', ');
+		}
+		
+		private function definitionsToCSS($def, $vars = array()) {
 			$output = null;
 			foreach((array)$def as $key => $value) {
+				foreach((array)$vars as $var => $val) {
+					$value = str_replace($var, $val, $value);
+				}
+				
+				$value = preg_replace_callback('#\((?:[^\(\)]++|(?R))*\)#im', array($this, 'doCalc'), $value);
+				
 				$output .= "\t" . $key . ((!empty($value)) ? ": " . $value . ";" : "") . "\n";
 			}
 			return $output;
+		}
+		
+		private function doCalc($val) {
+			$ext = null;
+			$val = preg_replace('#(auto)+#ims', '0', $val);
+			
+			if (is_array($val)) {
+				$val = implode('', $val);
+			}
+			
+			if (preg_match('#%|in|cm|mm|em|ex|pt|pc|px#ims', $val, $matches)) {
+				$ext = implode('', $matches);
+				$val = preg_replace('#%|in|cm|mm|em|ex|pt|pc|px#ims', '', $val);
+			}
+			
+			var_dump($val);
+			
+			$return = create_function('', 'return ('.$val.');');
+			
+			return $return().$ext;
 		}
 		
 		public function output() {
@@ -204,7 +245,7 @@
 			// 			exit;
 			
 			echo "<pre>";
-			var_dump($this->toCSS($this->parsed));
+			var_dump($this->toCSS($this->parsed, null, $this->parsed['variables']));
 			exit;
 		}
 	}
