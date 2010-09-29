@@ -1,5 +1,5 @@
 <?php
-	include 'less.php';
+	include 'phpless.php';
 	echo PHPLess::getInstance('test.css')->output();
 
 ?>

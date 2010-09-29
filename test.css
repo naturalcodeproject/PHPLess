@@ -6,7 +6,7 @@
 @var6: #FFFFFF;
 @var3: 1px red solid;
 
-@media screen {
+@media screen,print {
 	p.test {font-family:verdana,sans-serif;font-size:14px;@var2: #FFFFFF;}
 	p.set {font-family:verdana,sans-serif;font-size:14px;a;a:hover;.something;}
 }
