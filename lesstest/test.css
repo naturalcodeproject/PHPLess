@@ -1,0 +1,56 @@
+@media screen p.test {
+  font-family: verdana, sans-serif;
+  font-size: 14px;
+}
+@media screen p.set {
+  font-family: verdana, sans-serif;
+  font-size: 14px;
+}
+print p.test {
+  font-family: verdana, sans-serif;
+  font-size: 14px;
+}
+print p.set {
+  font-family: verdana, sans-serif;
+  font-size: 14px;
+}
+[title~=hello] { color: blue; }
+body {
+  text-align: center;
+  font: 12px arial, helvetica;
+  padding: 26px;
+}
+body a { font: 15px arial, helvetica; }
+body a span { background: transparent url("../images/bg.jpg") no-repeat top left; }
+body div { border: 1px red solid; }
+body div a { color: #ffffff; }
+body div span { color: #ffffff; }
+body div p { color: #ffffff; }
+a { color: #ffff66; }
+a { color: #ffffff; }
+a span { text-align: center; }
+a span p { text-align: right; }
+a span span { text-align: right; }
+a span aside { text-align: right; }
+a:link { color: #ffffff; }
+a:link span { text-align: center; }
+a:link span p { text-align: right; }
+a:link span span { text-align: right; }
+a:link span aside { text-align: right; }
+a:visited { color: #ffffff; }
+a:visited span { text-align: center; }
+a:visited span p { text-align: right; }
+a:visited span span { text-align: right; }
+a:visited span aside { text-align: right; }
+a:hover { text-decoration: none; }
+body > a:link { font-size: 15px; }
+#testing { color: red; }
+#testing a { font-size: 30px; }
+#testing span { font-size: 9px; }
+span { border: 5px; }
+div#something .more { border: 6px; }
+.something {
+  border: 1px solid #ffffff;
+  border: 6px;
+}
+body#tier-1 .wrapper #main.large { background-color: red; }
